@@ -9,11 +9,12 @@
 
 
 h1{
+	color: orange;
 	position: relative;
 	font-size: 150px;
 	z-index: 3;
 	text-align: center;
-	top: 7%;
+	top: 45%;
   
 }
 
@@ -22,6 +23,13 @@ h1{
 	font-size: 200px;
 	color: orange;
 	text-align: center;
-	top: 10%;
+	top: 40%;
 	z-index: 3;
+}
+
+img{
+	z-index: 2;
+	position: fixed;
+	max-width: 100%;
+	
 }
