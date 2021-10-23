@@ -9,7 +9,7 @@
 
 
 h1{
-	color: yellow;
+	color: red;
 	position: relative;
 	font-size: 150px;
 	z-index: 3;
@@ -21,7 +21,7 @@ h1{
 .innertext{
 	position: relative;
 	font-size: 200px;
-	color: yellow;
+	color: red;
 	text-align: center;
 	top: 40%;
 	z-index: 3;
@@ -30,6 +30,6 @@ h1{
 img{
 	z-index: 2;
 	position: fixed;
-	max-width: 100%;
+	max-width: 20%;
 	
 }
