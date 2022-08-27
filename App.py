@@ -1,6 +1,11 @@
 from tkinter import *
 import webbrowser
+import configparser
 
+config = configparser.ConfigParser()
+config.read('config.ini')
+chrome = config['location']['chrome']
+html_location = config['htmlfile']['html']
 root = Tk()
 root.geometry("600x200")
 room = IntVar()
@@ -31,6 +36,7 @@ def getColor():
     color = getVariables()
     color = color.replace('.html', '')
     return color
+  
 
 def getVideo():
     if v.get() == 2:
@@ -58,13 +64,13 @@ def getCSS():
     elif color == "Orange" and video != "movie.mp4":
         css = "Styled.css"
     elif color == "Blue":
-        css = "Style"
+        css = "Style.css"
     elif color == "Red":
-        css = "Style1"
+        css = "Style1.css"
     elif color == "Yellow":
-        css = "Style2"
+        css = "Style2.css"
     else:
-        css = "Style3"
+        css = "Style3.css"
     return css
 
 
@@ -77,9 +83,13 @@ def openWebpage():
     <div class='innertext'>{e.get()}</div></body></html>"""
     file.write(message)
     file.close()
+    chrome_path = f'{chrome} %s'
     try:
-        webbrowser.get('chrome').open(roomColor)
+        webbrowser.get(chrome_path).open_new(f"{html_location}{roomColor}")
     except:
+        print("Could not find chrome location")
+        print("Did you edit the config.ini file?")
+        print("Using default browser")
         webbrowser.get('windows-default').open(roomColor)
 
 Radiobutton(root, text="Blue", variable=room, value=1).pack(side = "left")
